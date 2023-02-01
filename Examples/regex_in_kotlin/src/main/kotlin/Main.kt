@@ -6,22 +6,19 @@ fun main() {
    println(emailPattern.containsMatchIn(emailAddress))
 
    //Using RegexOption
-   val animalPattern = Regex("Lion",RegexOption.IGNORE_CASE)
+   val animalPattern = Regex("LION",RegexOption.IGNORE_CASE)
    val animalName = "I am a lion"
    println(animalPattern.containsMatchIn(animalName))
 
-   
+   //Using Character class
+   val pattern = Regex("^[aieou]",RegexOption.IGNORE_CASE)
+   val fruitName = "Apple"
+   println(fruitName.matches(pattern))
 
+   println(isValidPhoneNumber(phoneNumber = "11-222-3353"))
 }
 
-/**
- * This function tells whether the given phone number is valid or not
- * @param phoneNumber Phone number string
- * @return whether the phone number is valid or not
- *
- * @sample isValidPhoneNumber("333-212-555") return true
- **/
-
 fun isValidPhoneNumber(phoneNumber: String): Boolean{
-   return false
+    val phoneNumberPattern = Regex("\\d{2}-\\d{3}-\\d{4}")
+    return phoneNumber.matches(phoneNumberPattern)
 }
